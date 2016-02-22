@@ -1,3 +1,5 @@
+package ClockDisplay;
+
 
 /**
  * The NumberDisplay class represents a digital number display that can hold
@@ -58,7 +60,7 @@ public class NumberDisplay
             value = replacementValue;
         }
     }
-
+    
     /**
      * Increment the display value by one, rolling over to zero if the
      * limit is reached.

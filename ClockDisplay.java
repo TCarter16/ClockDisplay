@@ -1,3 +1,5 @@
+package ClockDisplay;
+
 
 /**
  * The ClockDisplay class implements a digital clock display for a
@@ -16,7 +18,8 @@ public class ClockDisplay
 {
     private NumberDisplay hours;
     private NumberDisplay minutes;
-    private String displayString;    // simulates the actual display
+    private String displayString;
+   //simulates the actual display
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -40,7 +43,7 @@ public class ClockDisplay
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
-
+    
     /**
      * This method should get called once every minute - it makes
      * the clock display go one minute forward.
@@ -78,7 +81,27 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+        int hour = hours.getValue();
+        String suffix;
+        
+        if(hour >= 12) 
+        {
+            suffix = "pm";
+        }
+        else 
+        {
+            suffix = "am";
+        }
+
+        if(hour >= 12) 
+        {
+          hour -= 12;
+        }
+        if(hour == 0) 
+        {
+            hour = 12;
+        }
+        displayString = hour + "." + 
+        minutes.getDisplayValue() + suffix;
     }
 }
